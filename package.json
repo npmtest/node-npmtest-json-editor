@@ -1,1 +1,40 @@
-{     "devDependencies": {         "json-editor": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-json-editor",     "homepage": "https://github.com/npmtest/node-npmtest-json-editor",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-json-editor.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "test coverage for [json-editor (v0.7.28)](https://github.com/jdorn/json-editor#readme) [![npm package](https://img.shields.io/npm/v/npmtest-json-editor.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-json-editor) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-json-editor.svg)](https://travis-ci.org/npmtest/node-npmtest-json-editor)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "json-editor": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-json-editor",
+    "keywords": [
+        "coverage",
+        "test",
+        "json-editor"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_json_editor.js",
+    "name": "npmtest-json-editor",
+    "nameAlias": "npmtest_json_editor",
+    "nameOriginal": "npmtest-json-editor",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-json-editor.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
